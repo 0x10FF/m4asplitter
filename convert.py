@@ -70,7 +70,8 @@ sectionCount = 1
 for lineIndex in range(len(lineList)):
 
     start, end = extractStartEndFromLine(lineList[lineIndex])
-    
+    end = end - start
+
     if start > 0 or end > 0:
         line = lineList[lineIndex+2]
         title = extractTitleFromLine(line)
