@@ -4,8 +4,6 @@ import os, commands, sys, re
 from optparse import OptionParser
 
 parser = OptionParser()
-parser.add_option("-c", "--convervative",
-                action="store", type="string", dest="filename", help="use beginning of next chapter as end for previous chapter")
 parser.add_option("-f", "--filename",
                 action="store", type="string", dest="filename", help="audio book input file, .m4a file for example")
 parser.add_option("-o", "--outdir",
@@ -17,7 +15,7 @@ if not options.filename:
     sys.exit(1)
 
 #----------------- lets get started
-titleLinePattern = re.compile("title.+\:(.*)$", re.IGNORECASE) #group 1 is title
+titleLinePattern = re.compile("title.+\:(.*)$", re.IGNORECASE)
 chapterPattern = re.compile("start ([\d\.]+), end ([\d\.]+)", re.IGNORECASE)
 GET_INFO_CMD = "ffmpeg -i {0}".format(options.filename)
 CONVERT_FFMPEG_CMD = "ffmpeg -i {0} -ss {1} -t {2} {3}"
@@ -66,7 +64,7 @@ outdir = '.'
 if options.outdir:
     outdir = options.outdir
 
-sectionCount = 1
+sectionCount = 1 #start counting from chapters from 1
 for lineIndex in range(len(lineList)):
 
     start, end = extractStartEndFromLine(lineList[lineIndex])
