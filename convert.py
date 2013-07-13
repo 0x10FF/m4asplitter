@@ -53,7 +53,7 @@ def makeChapterFile(chapterIndex, title, start, end):
             else:
                 print ffmpegOut
         else:
-            print "{0} already exists, ignoring..."
+            print "{0} skipping ..."
 
 cmdTuple = commands.getstatusoutput(GET_INFO_CMD)
 
