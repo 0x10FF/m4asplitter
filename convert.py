@@ -53,7 +53,7 @@ def makeChapterFile(chapterIndex, title, start, end):
             else:
                 print ffmpegOut
         else:
-            print "{0} skipping ..."
+            print "{0} skipping ...".format(outFile)
 
 cmdTuple = commands.getstatusoutput(GET_INFO_CMD)
 
