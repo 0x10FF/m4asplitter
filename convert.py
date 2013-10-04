@@ -68,11 +68,11 @@ sectionCount = 1 #start counting from chapters from 1
 for lineIndex in range(len(lineList)):
 
     start, end = extractStartEndFromLine(lineList[lineIndex])
-    end = end - start
+    trackLength = end - start
 
     if start > 0 or end > 0:
         line = lineList[lineIndex+2]
         title = extractTitleFromLine(line)
-        print "{0}: {1}-{2}".format(title, start, end)
-        makeChapterFile(sectionCount, title, start, end)
+        print "{0}: {1}-{2}".format(title, start, trackLength)
+        makeChapterFile(sectionCount, title, start, trackLength)
         sectionCount += 1
