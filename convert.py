@@ -43,10 +43,10 @@ def makeChapterFile(chapterIndex, title, start, end):
         safeTitle = "".join([c for c in title if c.isalpha() or c.isdigit() or c==' ']).strip()
         outFile = "'{0}/{1}_{2}.mp3'".format(outdir, chapterIndex, safeTitle)
         
-        print CONVERT_FFMPEG_CMD.format(options.filename, start, end, outFile)
+        CMD = CONVERT_FFMPEG_CMD.format(options.filename, start, end, outFile)
+        print CMD
 
         if not os.path.isfile(outFile):
-            CMD = CONVERT_FFMPEG_CMD.format(options.filename, start, end, outFile)
             ffmpegOut = commands.getstatusoutput(CMD)
             if ffmpegOut[0] == 0:
                 print "success, created {0}".format(outFile)
