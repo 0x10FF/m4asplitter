@@ -64,7 +64,7 @@ outdir = '.'
 if options.outdir:
     outdir = options.outdir
 
-sectionCount = 1 #start counting from chapters from 1
+sectionCount = 1 #count chapters from 1
 for lineIndex in range(len(lineList)):
 
     start, end = extractStartEndFromLine(lineList[lineIndex])
